@@ -1,5 +1,3 @@
-# CS 201 Student Repository
+# Trippin Project Repo
 
-- **Name**: Tommy Trojan
-- **USC ID**: 1234567890
-- **Email**: ttrojan@usc.edu
+- **Trippin**: a road trip planning app
