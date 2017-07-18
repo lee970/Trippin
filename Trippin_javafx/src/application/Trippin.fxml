@@ -1,0 +1,1052 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+   <children>
+      <VBox fx:id="launchPane" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" spacing="20.0">
+         <children>
+            <ImageView fx:id="launchLogo" fitHeight="400.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/icon.png" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="50.0" />
+               </VBox.margin>
+            </ImageView>
+            <Button fx:id="launchLoginButton" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#showLoginPage" prefHeight="40.0" prefWidth="300.0" styleClass="launchButton" stylesheets="@application.css" text="Login">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="launchCreateAccountButton" alignment="CENTER" layoutX="360.0" layoutY="620.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#showCreateAccountPage" prefHeight="40.0" prefWidth="300.0" styleClass="launchButton" stylesheets="@application.css" text="Create Account">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="launchGuestButton" alignment="CENTER" layoutX="360.0" layoutY="585.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#showGuestFeedPage" prefHeight="40.0" prefWidth="300.0" styleClass="launchButton" stylesheets="@application.css" text="Continue as Guest">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+         <padding>
+            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+         </padding>
+      </VBox>
+      <VBox fx:id="loginPane" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" spacing="20.0" visible="false">
+         <padding>
+            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+         </padding>
+         <children>
+            <ImageView fx:id="loginLogo" fitHeight="300.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/icon.png" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </ImageView>
+            <TextField fx:id="loginUsernameTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="300.0" promptText="Username" />
+            <TextField fx:id="loginPasswordTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="300.0" promptText="Password" />
+            <Button fx:id="loginButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#attemptLogin" prefHeight="40.0" prefWidth="300.0" styleClass="launchButton" stylesheets="@application.css" text="Login">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="loginBackToStartButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#loginBackToStart" prefHeight="40.0" prefWidth="300.0" style="-fx-background-color: #bbb;" styleClass="launchButton" stylesheets="@application.css" text="Back to Start">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label fx:id="loginLabel" text="   " />
+         </children>
+      </VBox>
+      <VBox fx:id="createAccountPane" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" spacing="20.0" visible="false">
+         <padding>
+            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+         </padding>
+         <children>
+            <ImageView fx:id="createAccountLogo" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/icon.png" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </ImageView>
+            <TextField fx:id="fnameTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="300.0" promptText="First Name" />
+            <TextField fx:id="lnameTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="300.0" promptText="Last Name" />
+            <TextField fx:id="usernameTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="300.0" promptText="Username" />
+            <TextField fx:id="passwordTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="300.0" promptText="Password" />
+            <TextField fx:id="imageTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="300.0" promptText="Image URL" />
+            <Button fx:id="createAccountButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#attemptCreateAccount" prefHeight="40.0" prefWidth="300.0" styleClass="launchButton" stylesheets="@application.css" text="Create Account">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="createAccountBackToStartButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#createAccountBackToStart" prefHeight="40.0" prefWidth="300.0" style="-fx-background-color: #bbb;" styleClass="launchButton" stylesheets="@application.css" text="Back to Start">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label fx:id="createAccountLabel" text="   " />
+         </children>
+      </VBox>
+      <BorderPane fx:id="feedPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" visible="false">
+         <top>
+            <HBox fx:id="titleHBox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="1000.0" style="-fx-background-color: #3ec6ba;" BorderPane.alignment="CENTER">
+               <children>
+                  <MenuButton fx:id="menuButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" stylesheets="@application.css" translateX="-410.0">
+                     <items>
+                        <MenuItem fx:id="feedMenuOption" mnemonicParsing="false" onAction="#menuShowFeed" text="Feed">
+                           <styleClass>
+                              <String fx:value="menuItem" />
+                              <String fx:value="menu-item" />
+                              <String fx:value="label" />
+                           </styleClass></MenuItem>
+                        <MenuItem fx:id="groupsMenuOption" mnemonicParsing="false" onAction="#menuShowGroups" text="My Groups">
+                           <styleClass>
+                              <String fx:value="menuItem" />
+                              <String fx:value="menu-item" />
+                              <String fx:value="label" />
+                           </styleClass></MenuItem>
+                        <MenuItem fx:id="createGroupMenuOption" mnemonicParsing="false" onAction="#menuShowCreateGroup" text="Create Group">
+                           <styleClass>
+                              <String fx:value="menuItem" />
+                              <String fx:value="menu-item" />
+                              <String fx:value="label" />
+                           </styleClass></MenuItem>
+                        <MenuItem fx:id="logoutMenuOption" mnemonicParsing="false" onAction="#menuLogout" text="Logout">
+                           <styleClass>
+                              <String fx:value="menuItem" />
+                              <String fx:value="menu-item" />
+                              <String fx:value="label" />
+                           </styleClass></MenuItem>
+                        <MenuItem fx:id="quitMenuOption" mnemonicParsing="false" onAction="#menuQuit" text="Quit">
+                           <styleClass>
+                              <String fx:value="menuItem" />
+                              <String fx:value="menu-item" />
+                              <String fx:value="label" />
+                           </styleClass></MenuItem>
+                     </items>
+                     <graphic>
+                        <ImageView fx:id="menuButtonImage" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/menu_icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <styleClass>
+                        <String fx:value="menuButton" />
+                        <String fx:value="arrow-button" />
+                        <String fx:value="arrow" />
+                     </styleClass>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </MenuButton>
+                  <ImageView fx:id="titleLogo" fitHeight="40.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/logo_white.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="notificationButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#showNotifications" prefHeight="40.0" prefWidth="40.0" styleClass="menuButton" stylesheets="@application.css" translateX="410.0">
+                     <graphic>
+                        <ImageView fx:id="notificationButtonImage" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/notification_icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+            </HBox>
+         </top>
+         <left>
+            <VBox fx:id="feedLeftVBox" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="740.0" prefWidth="260.0" spacing="10.0" BorderPane.alignment="CENTER">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <children>
+                  <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="220.0" text="Trips" textAlignment="CENTER">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="feedListView" fixedCellSize="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="220.0" stylesheets="@application.css" />
+                  <Label fx:id="feedGoToTripErrorLabel" />
+                  <Button fx:id="goToTripButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#showTripPage" prefHeight="40.0" prefWidth="200.0" styleClass="launchButton" stylesheets="@application.css" text="Go to Trip">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="joinTripButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#joinTrip" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #ccc;" styleClass="launchButton" stylesheets="@application.css" text="Join Trip">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </VBox>
+         </left>
+         <right>
+            <VBox fx:id="feedRightVBox" alignment="TOP_RIGHT" BorderPane.alignment="BOTTOM_CENTER">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </VBox>
+         </right>
+      </BorderPane>
+      <VBox fx:id="specificGroupPane" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" visible="false">
+         <children>
+            <HBox fx:id="titleHBox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="1000.0" style="-fx-background-color: #3ec6ba;">
+               <children>
+                  <MenuButton fx:id="menuButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" stylesheets="@application.css" translateX="-410.0">
+                     <items>
+                        <MenuItem fx:id="feedMenuOption" mnemonicParsing="false" onAction="#menuShowFeed" text="Feed">
+                           <styleClass>
+                              <String fx:value="menuItem" />
+                              <String fx:value="menu-item" />
+                              <String fx:value="label" />
+                           </styleClass>
+                        </MenuItem>
+                        <MenuItem fx:id="groupsMenuOption" mnemonicParsing="false" onAction="#menuShowGroups" text="My Groups">
+                           <styleClass>
+                              <String fx:value="menuItem" />
+                              <String fx:value="menu-item" />
+                              <String fx:value="label" />
+                           </styleClass>
+                        </MenuItem>
+                        <MenuItem fx:id="createGroupMenuOption" mnemonicParsing="false" onAction="#menuShowCreateGroup" text="Create Group">
+                           <styleClass>
+                              <String fx:value="menuItem" />
+                              <String fx:value="menu-item" />
+                              <String fx:value="label" />
+                           </styleClass>
+                        </MenuItem>
+                        <MenuItem fx:id="logoutMenuOption" mnemonicParsing="false" onAction="#menuLogout" text="Logout">
+                           <styleClass>
+                              <String fx:value="menuItem" />
+                              <String fx:value="menu-item" />
+                              <String fx:value="label" />
+                           </styleClass>
+                        </MenuItem>
+                        <MenuItem fx:id="quitMenuOption" mnemonicParsing="false" onAction="#menuQuit" text="Quit">
+                           <styleClass>
+                              <String fx:value="menuItem" />
+                              <String fx:value="menu-item" />
+                              <String fx:value="label" />
+                           </styleClass>
+                        </MenuItem>
+                     </items>
+                     <graphic>
+                        <ImageView fx:id="menuButtonImage" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/menu_icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <styleClass>
+                        <String fx:value="menuButton" />
+                        <String fx:value="arrow-button" />
+                        <String fx:value="arrow" />
+                     </styleClass>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </MenuButton>
+                  <ImageView fx:id="titleLogo" fitHeight="40.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/logo_white.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="notificationButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#showNotifications" prefHeight="40.0" prefWidth="40.0" styleClass="menuButton" stylesheets="@application.css" translateX="410.0">
+                     <graphic>
+                        <ImageView fx:id="notificationButtonImage" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/notification_icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+            </HBox>
+            <StackPane fx:id="specificGroupStackPane" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="740.0" prefWidth="1000.0">
+               <children>
+                  <ImageView fx:id="specificGroupBackgroundImage" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/Tripp.png" />
+                     </image>
+                  </ImageView>
+                  <ScrollPane maxWidth="-Infinity" minWidth="-Infinity" prefWidth="1000.0" stylesheets="@application.css">
+                     <content>
+                        <VBox fx:id="specificGroupPaneVBox" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1600.0" prefWidth="1000.0" spacing="30.0" stylesheets="@application.css">
+                           <children>
+                              <VBox fx:id="logisticsVBox" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="800.0" styleClass="transparent" stylesheets="@application.css">
+                                 <children>
+                                    <Label fx:id="groupNameLabel" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" textAlignment="CENTER" textFill="#3ec6ba">
+                                       <font>
+                                          <Font name="System Bold" size="26.0" />
+                                       </font>
+                                    </Label>
+                                    <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0">
+                                       <children>
+                                          <Label fx:id="meetingTimeLabel" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="200.0" textAlignment="CENTER">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="startDateLabel" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="200.0" textAlignment="CENTER">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="endDateLabel" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="200.0" textAlignment="CENTER">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" text="Comments" textAlignment="CENTER" textFill="#3ec6ba" underline="true">
+                                             <font>
+                                                <Font name="System Bold" size="17.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets top="10.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label fx:id="commentLabel" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="500.0">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </Label>
+                                          <Button fx:id="editCommentButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#showCommentEditor" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: #ccc;" styleClass="launchButton" stylesheets="@application.css" text="Edit Comments">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </padding>
+                              </VBox>
+                              <HBox fx:id="specificGroupButtonHBox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="1000.0" spacing="100.0">
+                                 <children>
+                                    <Button fx:id="budgetButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#showBudget" prefHeight="150.0" prefWidth="150.0" styleClass="trip-button" stylesheets="@application.css" text="Budget" textAlignment="CENTER">
+                                       <graphic>
+                                          <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" translateY="-65.0">
+                                             <image>
+                                                <Image url="@../img/budget_button.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <padding>
+                                          <Insets top="100.0" />
+                                       </padding>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button fx:id="songsButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#showSongs" prefHeight="150.0" prefWidth="150.0" styleClass="trip-button" stylesheets="@application.css" text="Songs" textAlignment="CENTER">
+                                       <graphic>
+                                          <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" translateY="-65.0">
+                                             <image>
+                                                <Image url="@../img/songs_button.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <padding>
+                                          <Insets top="100.0" />
+                                       </padding>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <Button fx:id="addUsersButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#showAddUserPage" prefHeight="150.0" prefWidth="150.0" styleClass="trip-button" stylesheets="@application.css" text="Add Users" textAlignment="CENTER">
+                                       <graphic>
+                                          <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" translateY="-65.0">
+                                             <image>
+                                                <Image url="@../img/user_icon.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <padding>
+                                          <Insets top="100.0" />
+                                       </padding>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="800.0" styleClass="transparent" stylesheets="@application.css">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="300.0" text="Destinations" textAlignment="CENTER">
+                                       <font>
+                                          <Font size="22.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="500.0" spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="destinationSearchField" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="400.0" promptText="search for a destination">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </TextField>
+                                          <Button fx:id="destinationSearchButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#searchForLocation" prefHeight="35.0" prefWidth="35.0" styleClass="launchButton" stylesheets="@application.css">
+                                             <graphic>
+                                                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../img/search_icon.png" />
+                                                   </image>
+                                                   <cursor>
+                                                      <Cursor fx:constant="DEFAULT" />
+                                                   </cursor>
+                                                </ImageView>
+                                             </graphic>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="300.0">
+                                       <children>
+                                          <Label fx:id="destinationSearchErrorLabel" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="100.0" textAlignment="CENTER">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="destinationCoordinateLabel" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="300.0" textAlignment="CENTER" textFill="#3ec6ba">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="addMarkerButton" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addMarkerToMap" prefHeight="35.0" prefWidth="300.0" styleClass="launchButton" stylesheets="@application.css" text="Add Marker to Map" textAlignment="CENTER">
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </VBox.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                       </children>
+                                    </VBox>
+                                    <VBox fx:id="tripMapVBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="740.0">
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                       </VBox.margin>
+                                    </VBox>
+                                    <ListView fx:id="destinationListView" fixedCellSize="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="700.0" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                           </padding>
+                        </VBox>
+                     </content>
+                     <styleClass>
+                        <String fx:value="scroll-pane" />
+                        <String fx:value="viewport" />
+                     </styleClass>
+                  </ScrollPane>
+                  <VBox fx:id="editCommentPopup" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="740.0" prefWidth="1000.0" styleClass="notificationBG" stylesheets="@application.css" visible="false">
+                     <children>
+                        <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" spacing="20.0" styleClass="notificationPopup" stylesheets="@application.css">
+                           <children>
+                              <Button fx:id="closeCommentEditorButton" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#closeCommentEditor" prefHeight="40.0" prefWidth="40.0" styleClass="close-button" stylesheets="@application.css" text="X" translateX="220.0">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <VBox.margin>
+                                    <Insets bottom="-40.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="200.0" text="Edit Comments" textAlignment="CENTER" textFill="#3ec6ba">
+                                 <font>
+                                    <Font name="System Bold" size="21.0" />
+                                 </font>
+                              </Label>
+                              <TextArea fx:id="commentTextBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" />
+                              <Button fx:id="editCommentSubmitButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#editComment" prefHeight="40.0" prefWidth="300.0" styleClass="launchButton" stylesheets="@application.css" text="submit changes">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="budgetPopup" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="740.0" prefWidth="1000.0" styleClass="notificationBG" stylesheets="@application.css" visible="false" StackPane.alignment="CENTER">
+                     <children>
+                        <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="700.0" spacing="10.0" styleClass="notificationPopup" stylesheets="@application.css">
+                           <children>
+                              <Button fx:id="closeBudgetButton" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#hideBudget" prefHeight="40.0" prefWidth="40.0" styleClass="close-button" stylesheets="@application.css" text="X" translateX="320.0">
+                                 <VBox.margin>
+                                    <Insets bottom="-40.0" />
+                                 </VBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
+                              <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="200.0" text="Budget" textAlignment="CENTER" textFill="#3ec6ba">
+                                 <font>
+                                    <Font name="System Bold" size="21.0" />
+                                 </font>
+                              </Label>
+                              <TableView fx:id="budgetTableView" fixedCellSize="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="450.0" stylesheets="@application.css">
+                                <columns>
+                                  <TableColumn fx:id="budgetItemColumn" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" resizable="false" text="Item" />
+                                  <TableColumn fx:id="budgetAmountColumn" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="Amount" />
+                                </columns>
+                              </TableView>
+                              <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <Label fx:id="addBudgetErrorLabel" />
+                                    <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="450.0" spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="budgetItemTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="220.0" promptText="Enter item" />
+                                          <TextField fx:id="budgetAmountTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="90.0" promptText="Enter amount" />
+                                       </children>
+                                    </HBox>
+                                    <Button fx:id="addBudgetItemButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addBudgetItem" prefHeight="40.0" prefWidth="320.0" styleClass="launchButton" stylesheets="@application.css" text="Add Item to Budget">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="songsPopup" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="740.0" prefWidth="1000.0" styleClass="notificationBG" stylesheets="@application.css" visible="false">
+                     <children>
+                        <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="700.0" spacing="10.0" styleClass="notificationPopup" stylesheets="@application.css">
+                           <children>
+                              <Button fx:id="closeSongsButton" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#hideSongs" prefHeight="40.0" prefWidth="40.0" styleClass="close-button" stylesheets="@application.css" text="X" translateX="320.0">
+                                 <VBox.margin>
+                                    <Insets bottom="-40.0" />
+                                 </VBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="200.0" text="Songs" textAlignment="CENTER" textFill="#3ec6ba">
+                                 <font>
+                                    <Font name="System Bold" size="21.0" />
+                                 </font>
+                              </Label>
+                              <ListView fx:id="songsListView" fixedCellSize="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="450.0" />
+                              <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="400.0" text="Upvote or downvote selected songs">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Label>
+                              <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="400.0" spacing="10.0">
+                                 <children>
+                                    <Button fx:id="upvoteSongButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#upvoteSong" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #68e39d;" styleClass="launchButton" stylesheets="@application.css" text="Upvote">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <Button fx:id="downvoteSongButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#downvoteSong" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #ff8f8f;" styleClass="launchButton" stylesheets="@application.css" text="Downvote">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <Label fx:id="songsErrorLabel" />
+                              <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="500.0" spacing="10.0">
+                                 <children>
+                                    <TextField fx:id="addSongTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="250.0" promptText="Enter song name" />
+                                    <Button fx:id="addSongButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addSong" prefHeight="40.0" prefWidth="150.0" styleClass="launchButton" stylesheets="@application.css" text="Add Song" textAlignment="CENTER">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </StackPane>
+         </children>
+      </VBox>
+      <VBox fx:id="createGroupPane" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" visible="false">
+         <children>
+            <HBox fx:id="titleHBox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="1000.0" style="-fx-background-color: #3ec6ba;">
+               <children>
+                  <MenuButton fx:id="menuButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" stylesheets="@application.css" translateX="-410.0">
+                     <items>
+                        <MenuItem fx:id="feedMenuOption" mnemonicParsing="false" onAction="#menuShowFeed" text="Feed">
+                           <styleClass>
+                              <String fx:value="menuItem" />
+                              <String fx:value="menu-item" />
+                              <String fx:value="label" />
+                           </styleClass></MenuItem>
+                        <MenuItem fx:id="groupsMenuOption" mnemonicParsing="false" onAction="#menuShowGroups" text="My Groups">
+                           <styleClass>
+                              <String fx:value="menuItem" />
+                              <String fx:value="menu-item" />
+                              <String fx:value="label" />
+                           </styleClass></MenuItem>
+                        <MenuItem fx:id="createGroupMenuOption" mnemonicParsing="false" onAction="#menuShowCreateGroup" text="Create Group">
+                           <styleClass>
+                              <String fx:value="menuItem" />
+                              <String fx:value="menu-item" />
+                              <String fx:value="label" />
+                           </styleClass></MenuItem>
+                        <MenuItem fx:id="logoutMenuOption" mnemonicParsing="false" onAction="#menuLogout" text="Logout">
+                           <styleClass>
+                              <String fx:value="menuItem" />
+                              <String fx:value="menu-item" />
+                              <String fx:value="label" />
+                           </styleClass></MenuItem>
+                        <MenuItem fx:id="quitMenuOption" mnemonicParsing="false" onAction="#menuQuit" text="Quit">
+                           <styleClass>
+                              <String fx:value="menuItem" />
+                              <String fx:value="menu-item" />
+                              <String fx:value="label" />
+                           </styleClass></MenuItem>
+                     </items>
+                     <graphic>
+                        <ImageView fx:id="menuButtonImage" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/menu_icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <styleClass>
+                        <String fx:value="menuButton" />
+                        <String fx:value="arrow-button" />
+                        <String fx:value="arrow" />
+                     </styleClass>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </MenuButton>
+                  <ImageView fx:id="titleLogo" fitHeight="40.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/logo_white.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="notificationButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#showNotifications" prefHeight="40.0" prefWidth="40.0" styleClass="menuButton" stylesheets="@application.css" translateX="410.0">
+                     <graphic>
+                        <ImageView fx:id="notificationButtonImage" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/notification_icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+            </HBox>
+            <ImageView fx:id="createGroupLogo" fitHeight="150.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/icon.png" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </ImageView>
+            <TextField fx:id="groupNameTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="300.0" promptText="Group Name" />
+            <TextField fx:id="startLocationTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="300.0" promptText="Start Location" />
+            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="300.0">
+               <children>
+                  <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" text="Meeting Time:" textFill="#666666" />
+                  <ComboBox fx:id="hourComboBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="90.0" promptText="HH" />
+                  <ComboBox fx:id="minuteComboBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="90.0" promptText="MM" />
+               </children>
+            </HBox>
+            <DatePicker fx:id="startDatePicker" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="300.0" promptText="Start Date" />
+            <DatePicker fx:id="endDatePicker" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="300.0" promptText="End Date" />
+            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="300.0">
+               <children>
+                  <Label text="Public Trip    " textFill="#3ec6ba">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Slider fx:id="CreateGroupSlider" blockIncrement="1.0" majorTickUnit="1.0" max="1.0" maxHeight="1.0" maxWidth="20.0" minHeight="-Infinity" minWidth="-Infinity" minorTickCount="0" prefHeight="10.0" prefWidth="75.0" snapToTicks="true" />
+                  <Label text="     Private Trip" textFill="#3ec6ba">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+               </children>
+            </HBox>
+            <TextArea fx:id="commentTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="300.0" promptText="Comments" />
+            <Button fx:id="createGroupButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#attemptCreateGroup" prefHeight="40.0" prefWidth="300.0" styleClass="launchButton" stylesheets="@application.css" text="Create Group">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Label fx:id="createGroupErrorLabel" />
+         </children>
+         <StackPane.margin>
+            <Insets />
+         </StackPane.margin>
+      </VBox>
+      <VBox fx:id="addUserPane" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" visible="false">
+         <children>
+            <HBox fx:id="titleHBox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="1000.0" style="-fx-background-color: #3ec6ba;">
+               <children>
+                  <MenuButton fx:id="menuButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" stylesheets="@application.css" translateX="-410.0">
+                     <items>
+                        <MenuItem fx:id="feedMenuOption" mnemonicParsing="false" onAction="#menuShowFeed" text="Feed">
+                           <styleClass>
+                              <String fx:value="menuItem" />
+                              <String fx:value="menu-item" />
+                              <String fx:value="label" />
+                           </styleClass></MenuItem>
+                        <MenuItem fx:id="groupsMenuOption" mnemonicParsing="false" onAction="#menuShowGroups" text="My Groups">
+                           <styleClass>
+                              <String fx:value="menuItem" />
+                              <String fx:value="menu-item" />
+                              <String fx:value="label" />
+                           </styleClass></MenuItem>
+                        <MenuItem fx:id="createGroupMenuOption" mnemonicParsing="false" onAction="#menuShowCreateGroup" text="Create Group">
+                           <styleClass>
+                              <String fx:value="menuItem" />
+                              <String fx:value="menu-item" />
+                              <String fx:value="label" />
+                           </styleClass></MenuItem>
+                        <MenuItem fx:id="logoutMenuOption" mnemonicParsing="false" onAction="#menuLogout" text="Logout">
+                           <styleClass>
+                              <String fx:value="menuItem" />
+                              <String fx:value="menu-item" />
+                              <String fx:value="label" />
+                           </styleClass></MenuItem>
+                        <MenuItem fx:id="quitMenuOption" mnemonicParsing="false" onAction="#menuQuit" text="Quit">
+                           <styleClass>
+                              <String fx:value="menuItem" />
+                              <String fx:value="menu-item" />
+                              <String fx:value="label" />
+                           </styleClass></MenuItem>
+                     </items>
+                     <graphic>
+                        <ImageView fx:id="menuButtonImage" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/menu_icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <styleClass>
+                        <String fx:value="menuButton" />
+                        <String fx:value="arrow-button" />
+                        <String fx:value="arrow" />
+                     </styleClass>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </MenuButton>
+                  <ImageView fx:id="titleLogo" fitHeight="40.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/logo_white.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="notificationButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#showNotifications" prefHeight="40.0" prefWidth="40.0" styleClass="menuButton" stylesheets="@application.css" translateX="410.0">
+                     <graphic>
+                        <ImageView fx:id="notificationButtonImage" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/notification_icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+            </HBox>
+            <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="740.0" prefWidth="1000.0" spacing="10.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="300.0" text="Select Group" textAlignment="CENTER">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="selectGroupComboBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#populateCurrentMemberList" prefHeight="35.0" prefWidth="300.0" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="300.0" text="Current Members" textAlignment="CENTER">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="currentMemberListView" fixedCellSize="75.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="500.0" styleClass="list-cell" stylesheets="@application.css">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </ListView>
+                  <Label fx:id="addUserErrorLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="35.0" prefWidth="300.0" textAlignment="CENTER" />
+                  <TextField fx:id="addUserTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="300.0" promptText="Enter a username">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </TextField>
+                  <Button fx:id="addUserButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addUserToGroup" prefHeight="35.0" prefWidth="300.0" styleClass="launchButton" stylesheets="@application.css" text="Add user" textAlignment="CENTER">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button fx:id="skipAddUserButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#menuShowFeed" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #ccc;" styleClass="launchButton" stylesheets="@application.css" text="skip" textAlignment="CENTER">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+               </children>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+            </VBox>
+         </children>
+      </VBox>
+      <BorderPane fx:id="groupsPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" visible="false">
+         <top>
+            <HBox fx:id="titleHBox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="1000.0" style="-fx-background-color: #3ec6ba;" BorderPane.alignment="CENTER">
+               <children>
+                  <MenuButton fx:id="menuButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" stylesheets="@application.css" translateX="-410.0">
+                     <items>
+                        <MenuItem fx:id="feedMenuOption" mnemonicParsing="false" onAction="#menuShowFeed" text="Feed">
+                           <styleClass>
+                              <String fx:value="menuItem" />
+                              <String fx:value="menu-item" />
+                              <String fx:value="label" />
+                           </styleClass></MenuItem>
+                        <MenuItem fx:id="groupsMenuOption" mnemonicParsing="false" onAction="#menuShowGroups" text="My Groups">
+                           <styleClass>
+                              <String fx:value="menuItem" />
+                              <String fx:value="menu-item" />
+                              <String fx:value="label" />
+                           </styleClass></MenuItem>
+                        <MenuItem fx:id="createGroupMenuOption" mnemonicParsing="false" onAction="#menuShowCreateGroup" text="Create Group">
+                           <styleClass>
+                              <String fx:value="menuItem" />
+                              <String fx:value="menu-item" />
+                              <String fx:value="label" />
+                           </styleClass></MenuItem>
+                        <MenuItem fx:id="logoutMenuOption" mnemonicParsing="false" onAction="#menuLogout" text="Logout">
+                           <styleClass>
+                              <String fx:value="menuItem" />
+                              <String fx:value="menu-item" />
+                              <String fx:value="label" />
+                           </styleClass></MenuItem>
+                        <MenuItem fx:id="quitMenuOption" mnemonicParsing="false" onAction="#menuQuit" text="Quit">
+                           <styleClass>
+                              <String fx:value="menuItem" />
+                              <String fx:value="menu-item" />
+                              <String fx:value="label" />
+                           </styleClass></MenuItem>
+                     </items>
+                     <graphic>
+                        <ImageView fx:id="menuButtonImage" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/menu_icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <styleClass>
+                        <String fx:value="menuButton" />
+                        <String fx:value="arrow-button" />
+                        <String fx:value="arrow" />
+                     </styleClass>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </MenuButton>
+                  <ImageView fx:id="titleLogo" fitHeight="40.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/logo_white.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="notificationButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#showNotifications" prefHeight="40.0" prefWidth="40.0" styleClass="menuButton" stylesheets="@application.css" translateX="410.0">
+                     <graphic>
+                        <ImageView fx:id="notificationButtonImage" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/notification_icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+            </HBox>
+         </top>
+         <left>
+            <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="740.0" prefWidth="260.0" spacing="10.0" BorderPane.alignment="CENTER">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <children>
+                  <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="220.0" text="My Trips" textAlignment="CENTER">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="myGroupsListView" fixedCellSize="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="220.0" stylesheets="@application.css" />
+                  <Button fx:id="myGoToTripButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#myShowTripPage" prefHeight="40.0" prefWidth="200.0" styleClass="launchButton" stylesheets="@application.css" text="Go to Trip">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Label fx:id="goToTripErrorLabel" />
+               </children>
+            </VBox>
+         </left>
+      </BorderPane>
+      <StackPane fx:id="notificationStackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseMoved="#showNotifications" prefHeight="800.0" prefWidth="1000.0" styleClass="notificationBG" stylesheets="@application.css" visible="false">
+         <children>
+            <VBox fx:id="notificationPopup" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" spacing="10.0" styleClass="notificationPopup" stylesheets="@application.css">
+               <children>
+                  <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="300.0" stylesheets="@application.css" text="Notifications" textFill="#3ec6ba">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="notificationListView" fixedCellSize="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" styleClass="list-cell" stylesheets="@application.css" />
+                  <Button fx:id="clearNotificationsButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#clearNotifications" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #bbb;" styleClass="launchButton" stylesheets="@application.css" text="Clear all">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button fx:id="closeNotificationsButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#closeNotifications" prefHeight="35.0" prefWidth="300.0" styleClass="launchButton" stylesheets="@application.css" text="Close">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+      <BorderPane fx:id="guestFeedPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" visible="false">
+         <top>
+            <HBox fx:id="guestTitleHBox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="1000.0" style="-fx-background-color: #3ec6ba;" BorderPane.alignment="CENTER">
+               <children>
+                  <MenuButton fx:id="guestMenuButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" stylesheets="@application.css" translateX="-430.0">
+                     <items>
+                        <MenuItem fx:id="loginMenuOption" mnemonicParsing="false" onAction="#showLoginPage" text="Login">
+                           <styleClass>
+                              <String fx:value="menuItem" />
+                              <String fx:value="menu-item" />
+                              <String fx:value="label" />
+                           </styleClass>
+                        </MenuItem>
+                        <MenuItem fx:id="quitMenuOption" mnemonicParsing="false" onAction="#menuQuit" text="Back to Start">
+                           <styleClass>
+                              <String fx:value="menuItem" />
+                              <String fx:value="menu-item" />
+                              <String fx:value="label" />
+                           </styleClass>
+                        </MenuItem>
+                     </items>
+                     <graphic>
+                        <ImageView fx:id="menuButtonImage" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/menu_icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <styleClass>
+                        <String fx:value="menuButton" />
+                        <String fx:value="arrow-button" />
+                        <String fx:value="arrow" />
+                     </styleClass>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </MenuButton>
+                  <ImageView fx:id="titleLogo" fitHeight="40.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" translateX="-20.0">
+                     <image>
+                        <Image url="@../img/logo_white.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+            </HBox>
+         </top>
+         <left>
+            <VBox fx:id="feedLeftVBox" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="740.0" prefWidth="260.0" spacing="10.0" BorderPane.alignment="CENTER">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <children>
+                  <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="220.0" text="Trips" textAlignment="CENTER">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="guestFeedListView" fixedCellSize="50.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="220.0" stylesheets="@application.css" />
+               </children>
+            </VBox>
+         </left>
+      </BorderPane>
+   </children>
+</StackPane>

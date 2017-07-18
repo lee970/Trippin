@@ -1,0 +1,4 @@
+ipaddress:localhost
+db:malpani_cinemate
+user:root
+password:Aarav1122

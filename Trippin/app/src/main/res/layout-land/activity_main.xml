@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.bdeng.trippin.MainActivity">
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="226dp"
+        android:layout_height="51dp"
+        android:text="Log in"
+        tools:layout_editor_absoluteX="93dp"
+        tools:layout_editor_absoluteY="350dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="229dp"
+        android:layout_height="51dp"
+        android:text="continue as a guest"
+        tools:layout_editor_absoluteX="90dp"
+        tools:layout_editor_absoluteY="495dp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="223dp"
+        android:layout_height="53dp"
+        android:text="create account"
+        tools:layout_editor_absoluteX="94dp"
+        tools:layout_editor_absoluteY="423dp" />
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/content"
+        android:layout_width="0dp"
+        android:layout_height="131dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="8dp">
+
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/phone_icon"
+        android:layout_width="435dp"
+        android:layout_height="369dp"
+        android:layout_gravity="center"
+        android:src="@drawable/trippin"
+        tools:layout_editor_absoluteX="-12dp"
+        tools:layout_editor_absoluteY="-19dp" />
+
+</android.support.constraint.ConstraintLayout>
+

@@ -1,0 +1,72 @@
+.launchButton {
+	-fx-background-color: #3ec6ba;
+	-fx-text-fill: #ffffff;
+	-fx-font-family: "System";
+	-fx-font-size: 18px;
+}
+
+.menuButton {
+	-fx-background-color: #3ec6ba;
+	-fx-text-fill: #ffffff;
+	-fx-font-family: "System";
+	-fx-font-size: 15px;
+}
+
+.menu-button > .arrow-button {
+    -fx-padding: 0;
+}
+
+.menu-button > .arrow-button > .arrow {
+    -fx-padding: 0;
+}
+
+.menuItem {
+	-fx-padding: 20 100;
+}
+
+.menu-item .label {
+	-fx-text-alignment: center;
+}
+
+.list-view > .list-cell {
+	-fx-font-size: 18px;
+}
+
+.feedButtonBox {
+	-fx-background-color: #000;
+	-fx-opacity: 0.5;
+}
+
+.trip-button {
+	-fx-background-color: #3ec6ba;
+	-fx-text-fill: #ffffff;
+	-fx-font-family: "System";
+	-fx-font-size: 18px;
+}
+
+.transparent {
+	-fx-background-color: rgba(250, 250, 250, 0.7);
+}
+
+.scroll-pane {
+	-fx-background-color: transparent;
+}
+
+.scroll-pane > .viewport {
+	-fx-background-color: transparent;
+}
+
+.notificationBG {
+	-fx-background-color: rgba(0, 0, 0, 0.4);
+}
+
+.notificationPopup {
+	-fx-background-color: rgba(255, 255, 255, 0.9);
+}
+
+.close-button {
+	-fx-background-color: #fe5e64;
+	-fx-text-fill: #ffffff;
+	-fx-font-family: "System";
+	-fx-font-size: 18px;
+}
